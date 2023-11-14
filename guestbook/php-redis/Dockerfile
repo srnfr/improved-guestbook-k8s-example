@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM php:apache
+FROM php:8-buster
 RUN apt update && apt install -y gip zip unzip
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
