@@ -31,16 +31,41 @@ replica:
     enabled: false
 ##
 
-##
+
+## Bitnami migration
+
+image:
+  registry: docker.io
+  repository: bitnamilegacy/redis
+  # tag: 7.2.2-debian-11-r0
+  
 sentinel:
   enabled: true
   persistence:  
     enabled: false
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/redis
+    # tag: 7.2.2-debian-11-r0
 
-## Bitnami migration
-image.repository: bitnamilegacy/redis
-sentinel.image.repository: bitnamilegacy/redis
-metrics.image.repository: bitnamilegacy/redis-exporter
-volumePermissions.image.repository: bitnamilegacy/os-shell
-sysctl.image.repository: bitnamilegacy/os-shell
-global.security.allowInsecureImages: true
+metrics:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/redis-exporter
+
+volumePermissions:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/os-shell
+
+sysctl:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/os-shell
+
+global:
+  security:
+    allowInsecureImages: true
