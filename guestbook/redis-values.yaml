@@ -26,7 +26,7 @@ master:
     enabled: false
 ##
 replica:
-  replicaCount: 3
+  replicaCount: 4
   persistence: 
     enabled: false
 ##
